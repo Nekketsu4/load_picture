@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+    <div class="container border py-3 my-5">
+        <img src="{{ get_pct.image.url }}" alt="picture" style="max-width:500px; max-height:500px">
+    </div>
+    <div class="container border py-3 my-5">
+        <a href="{% url 'app:load_p' %}">
+            <button class="btn btn-primary">
+                Назад
+            </button>
+        </a>
+    </div>
+{% endblock %}

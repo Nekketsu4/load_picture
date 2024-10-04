@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+    <div class="container border py-3 my-5">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Отправить</button>
+        </form>
+
+    </div>
+    <div class="container border py-3 my-5">
+            {% if path_pict %}
+                <span>Перейти по прямой ссылке: </span><a href="{{ path_pict }}">
+                {{ path_pict }}</a>
+                <br>
+                <span>Перейти на страницу </span><a href="{% url 'app:detail' pk=img.pk %}">
+                по этой ссылке</a>
+            {% endif %}
+        </div>
+{% endblock %}
